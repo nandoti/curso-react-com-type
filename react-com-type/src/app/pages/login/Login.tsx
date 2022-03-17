@@ -1,17 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect,useContext, useMemo, useCallback, useRef } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 
 import { InputLogin } from "./components/InputLogin";
 import { ButtonLogin } from "./components/ButtonLogin";
 import { ButtonReturn } from "./components/ButtonReturn";
-import { LoggedUserContext } from "../../shared/contexts";
+
+import { loggedInUser } from "../../shared/hooks";
 
 export const Login = () => {
   // Serve para pegar a referência de uma elemento HTML
   const inputPassordRef = useRef<HTMLInputElement>(null);
 
   // importa o nome do usuário
-  const {nameUser} = useContext(LoggedUserContext)
+  const { nameUser } = loggedInUser();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -1,12 +1,14 @@
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { LoggedUserContext } from "../../shared/contexts";
+
+
+import { loggedInUser } from "../../shared/hooks";
 
 
 export const Dashboard = () => {
   const counterRef = useRef(0); // Não precisa ser sempre um obj (pode usar uma string)
 
-  const {nameUser}= useContext(LoggedUserContext)
+  const { nameUser } = loggedInUser(); // Forma mais prática de importar nome do usuário
 
   return (
     <div>
