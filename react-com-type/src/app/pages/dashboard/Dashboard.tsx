@@ -8,7 +8,7 @@ import { loggedInUser } from "../../shared/hooks";
 export const Dashboard = () => {
   const counterRef = useRef(0); // Não precisa ser sempre um obj (pode usar uma string)
 
-  const { nameUser } = loggedInUser(); // Forma mais prática de importar nome do usuário
+  const { nameUser ,logout } = loggedInUser(); // Forma mais prática de importar nome do usuário
 
   return (
     <div>
@@ -20,6 +20,9 @@ export const Dashboard = () => {
       <button onClick={() => counterRef.current++}>Somar</button>
       <button onClick={() => console.log(counterRef.current)}>
         Log
+      </button>
+      <button onClick={logout}>
+        Logout
       </button>
       <br></br>
       <Link to="/Login">Login </Link>
